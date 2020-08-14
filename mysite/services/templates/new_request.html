@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block body %}
+<form class="form-inline" action="/action_page.php">
+    <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle2">Plumbing</label>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label>
+        </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+<form>
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1"> I have a bike</label>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+    <label for="vehicle2"> I have a car</label>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+    <label for="vehicle3"> I have a boat</label>
+    <br>
+    <label for="request_desc">Request Description: </label>
+    <input type="text" id="request_desc" name="request_desc" size="400"><br>
+    <label for="city">City: </label>
+    <input type="text" id="city" name="city"><br>
+    <label for="state">State: </label>
+    <input type="text" id="state" name="state"><br>
+    <label for="pincode">Pincode: </label>
+    <input type="text" id="pincode" name="pincode"><br>
+    <label for="alt_phone">Alternate Phone Number: </label>
+    <input type="text" id="alt_phone" name="alt_phone">
+
+</form>
+
+{% endblock body %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block body %}
+<table id="example" class="table table-hover " > 
+    <thead class="thead-randstad text-center">
+        <tr style="font-size:.75em">
+            <th scope="col" >#</th>
+            <th scope="col">Request Type</th>
+            <th scope="col">Request Description</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Pincode</th>
+            <th scope="col">Alt Phone</th>
+            <th scope="col">Timestamp</th>
+            <!-- {% if user.is_superuser %}
+            <th scope="col">Reassign</th>
+            {% endif %} -->
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        {% for request in Requests %}                    
+        <tr style="font-size:.8em">                        
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ request.request_type}}</td>
+            <td>{{ request.request_description}}</td>
+            <td>{{ request.city}}</td>
+            <td>{{ request.state}}</td>
+            <td>{{ request.pincode}}</td>
+            <td>{{ request.alt_phone}}</td>
+            <td>{{ request.timestamp}}</td>
+            <!-- <td>{{ lead.first_name  }}</td>
+            <td>{{ lead.last_name  }}</td>
+            <td>{{ lead.status.name  }}</td>
+            <td>{{ lead.type_of_enquiry }}</td>
+            <td>{{ lead.email }}</td>
+            <td><button type="button" class="btn btn-sm btn-randstad lead-detail" id="{{ lead.id }}">View Details</button></td> -->
+            <!-- {% if user.is_superuser %}
+            <td><button type="button" class="btn btn-sm btn-randstad-yellow center lead-reassign" id="{{ lead.id }}">Reassign</button></td>
+            {% endif %} -->
+        </tr>
+        {% endfor %}
+    </tbody>
+
+{% endblock body %}

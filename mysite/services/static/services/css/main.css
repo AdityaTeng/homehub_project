@@ -1,0 +1,42 @@
+.navbar-randstad { 
+    background-color:#101943; 
+}
+.modal-randstad{
+    background-color: #101943;
+    color:white;
+}
+
+.btn-randstad-blue {
+    background-color: #101943;
+    color: white; 
+}
+
+.btn-randstad {
+    background-color: #e74537;
+    color: white;
+}
+.btn-randstad-yellow{
+    background-color: #ffb63b;
+}
+
+.thead-randstad {
+    background-color: #101943;
+    color: white;
+    margin: 10px;
+}
+
+
+
+#footer.footer-center{
+    text-align: center;
+}
+.jumbotron{
+    padding: 10%;
+    height: 80vh;
+}
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
