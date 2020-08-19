@@ -20,6 +20,7 @@ from register import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("register/", v.register, name="register"),  # <-- added
+    # path('', include('services.urls')),
     path('', include('services.urls')),
     path('', include('django.contrib.auth.urls'))
 ]

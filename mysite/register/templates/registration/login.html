@@ -7,7 +7,9 @@ Login Here
 {% load crispy_forms_tags %}
 
 {% block content %}
-     <form method="post" class="from-group">
+	<h1 class="mt-2">Login</h1>
+	<hr class="mt-0 mb-4">
+    <form method="post" class="from-group">
 	{% csrf_token %}
 	{{form|crispy}}
 	<p>Don't have an accoount? Create one <a href="/register">here</a></p>

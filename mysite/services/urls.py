@@ -10,8 +10,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('list_request_view/', ListRequestView.as_view(), name="request-all"),
     path('', home, name="home"),
-    path('request/', get_request, name="get_request"),
+    path('new_request/request/', get_request, name="get_request"),
     path('new_request/', new_request, name="new_request"),
     path('index/', index, name="index"),
-    
 ]

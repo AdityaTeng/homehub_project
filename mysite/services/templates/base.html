@@ -2,49 +2,74 @@
 <html lang="en">
 <head>
     <title>MyDjangoApp</title>
-   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body class="override">
-    <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/mymodule/">MyDjangoApp</a>
-            </div>
-           
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/login">Logout</a></li>
-                </ul>
-            </div>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Service Hub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/new_request">New Request</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+            {% endif %}
+          </ul>
         </div>
     </nav>
-   
+
+    <!-- <div class="sidenav">
+		<a href="/">Home</a>
+		<a href="/new_request">New Request</a>
+        <a href="/register">Register</a>
+        {% if User.is_authenticated %}
+            <a href="/login">Sign In</a>
+        {% else %}
+            <a href="/login">Log Out</a>
+        {% endif %}
+	</div> -->
     <div class="container">
         <div class="row">
-            {% block content %}{% endblock %}
+            {% block content %}
+            {% endblock %}
         </div>
     </div>
-   
-    <footer>
+    <!-- Footer -->
+        <footer class="page-footer font-small blue" style="position:fixed; bottom: 10px; left: 40%;">
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://www.linkedin.com/in/aditya-teng-8b5712174/">Aditya Teng</a>
+            </div>
+        </footer>
+  <!-- Footer
+    <footer style="position:fixed; bottom: 10px; left: 20px;">
         <div class="container">
             <div class="row well ml-t">
                 <div class="col-lg-4 col-md-4">
-                    <p class="m-t">Copyright &copy <a href="https://www.linkedin.com/in/aditya-teng-8b5712174/" target="_blank">Aditya Teng</a> 2020</p>
-                    <p>All Rights Reserved.</p>
+                        <p class="m-t">Copyright &copy <a href="https://www.linkedin.com/in/aditya-teng-8b5712174/" target="_blank">Aditya Teng</a> 2020</p>
+                        <p>All Rights Reserved.</p>
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
 </body>
 </html>

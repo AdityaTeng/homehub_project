@@ -13,10 +13,18 @@ from rest_framework.decorators import api_view
 
 # Create your views here.
 def home(request):
-    if request.method=="GET":
+    print("HOME")
+    queryset = []
+    context = {}
+    if str(request.user) == 'AnonymousUser':
+        return render(request, 'index.html')
+        # return redirect("/login")
+    elif request.method=="GET":
+        queryset = Request.objects.all().filter(user=request.user)
+        print(queryset)#User.id, User.username)
         if User.is_authenticated:
-            print("1")
-            return render(request, "index.html")
+            context['Requests'] = queryset
+            return render(request, 'index.html', context)
         else:
             return redirect("/login")
 
@@ -35,11 +43,14 @@ class ListRequestView(generics.ListAPIView):
 def get_request(request):
     """GET and POST Service Request"""
     if request.method == 'GET':
+        print("GET")
         requests = Request.objects.all()
         serializer = RequestSerializer(requests, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':
+        print("POST1")
+        print(request.data)
         serializer = RequestSerializer(data=request.data)
         if serializer.is_valid():
             print('True')

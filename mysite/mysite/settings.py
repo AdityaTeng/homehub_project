@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'services',
     'rest_framework',
     'crispy_forms',
-    # 'main.apps.MainConfig',
     'register.apps.RegisterConfig',
 ]
 
@@ -128,3 +127,5 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+APPEND_SLASH=False

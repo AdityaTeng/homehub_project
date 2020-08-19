@@ -1,43 +1,84 @@
 {% extends 'base.html' %}
-{% block body %}
-<form class="form-inline" action="/action_page.php">
-    <div class="form-group">
-        <label for="email">Email address:</label>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle2">Plumbing</label>
-        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-        <label for="vehicle2"> I have a car</label>
-        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-        <label for="vehicle3"> I have a boat</label>
+{% block content %}
+<div class="container">
+<br>
+<h4>Welcome {{ user.username }}! Please fill out the New Request form.</h4>
+<hr><br>
+<form action="request/" method="POST">
+  {% csrf_token %}
+  <div class="form-group" id='request_form'>
+    <label for="request_type">Request Type</label>
+    <select class="form-control" id="request_type">
+      <option>Plumbing</option>
+      <option>Electrical</option>
+      <option>Painting</option>
+      <option>Deep Cleaning</option>
+    </select>
+  <!-- <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Request Type</legend>
+        <div class="col-sm-2">
+          <input class="form-check-input" type="radio" name="request_type" id="PL" value="PL" checked>
+          <label class="form-check-label" for="request_type">
+            Plumbing     
+          </label>
         </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd">
+        <div class="col-sm-2">
+          <input class="form-check-input" type="radio" name="request_type" id="EL" value="EL">
+          <label class="form-check-label" for="Electrical">
+            Electrical
+          </label>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-check disabled">
+            <input class="form-check-input" type="radio" name="request_type" id="PA" value="PA">
+            <label class="form-check-label" for="Painting">
+              Painting
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-check disabled">
+            <input class="form-check-input" type="radio" name="request_type" id="DC" value="DC">
+            <label class="form-check-label" for="Deep Cleaning">
+            Deep Cleaning
+            </label>
+          </div>
+        </div>
+  </fieldset> -->
+  <div class="form-group">
+    <label for="request_description">Request Description</label>
+    <textarea class="form-control" id="request_description" rows="2"></textarea>
+  </div>
+  <div class="form-group row">
+    <label for="city" class="col-sm-2 col-form-label">City</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="city" placeholder="City">
     </div>
-    <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
+  </div>
+  <div class="form-group row">
+    <label for="state" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="state" placeholder="State">
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
-<form>
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-    <label for="vehicle1"> I have a bike</label>
-    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-    <label for="vehicle2"> I have a car</label>
-    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-    <label for="vehicle3"> I have a boat</label>
-    <br>
-    <label for="request_desc">Request Description: </label>
-    <input type="text" id="request_desc" name="request_desc" size="400"><br>
-    <label for="city">City: </label>
-    <input type="text" id="city" name="city"><br>
-    <label for="state">State: </label>
-    <input type="text" id="state" name="state"><br>
-    <label for="pincode">Pincode: </label>
-    <input type="text" id="pincode" name="pincode"><br>
-    <label for="alt_phone">Alternate Phone Number: </label>
-    <input type="text" id="alt_phone" name="alt_phone">
-
+  </div>
+  <div class="form-group row">
+    <label for="pincode" class="col-sm-2 col-form-label">Pincode</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="pincode" placeholder="Pincode">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="alt_phone" class="col-sm-2 col-form-label">Alternate Phone No.</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="alt_phone" placeholder="Alternate Phone No.">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" id = 'request_form' class="btn btn-primary">Submit</button>
+    </div>
+  </div>
 </form>
-
-{% endblock body %}
+</div>
+{% endblock %}
